@@ -1,7 +1,7 @@
 import yfinance as yf
-from web_scraping import scrap_spy
+from web_scraping import obtener_tickers
 
-tickers_limpios = scrap_spy
+tickers_limpios = obtener_tickers()
 
 # Descarga de datos temporalidad 60m.
 
