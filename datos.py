@@ -1,7 +1,7 @@
 import yfinance as yf
-from webScraping import scrapSPY
+from web_scraping import scrap_spy
 
-tickers_limpios = scrapSPY
+tickers_limpios = scrap_spy
 
 # Descarga de datos temporalidad 60m.
 
@@ -11,3 +11,4 @@ data_60m = yf.download(tickers_limpios, period="2mo", interval="60m", group_by='
 data_1d = yf.download(tickers_limpios, period="2mo", interval="1d", group_by='ticker', progress=False)
 
 # Descarga de datos temporalidad 7d.
+data_7d = yf.download(tickers_limpios, period="1y", interval="1wk", group_by='ticker', progress=False)
