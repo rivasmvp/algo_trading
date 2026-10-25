@@ -27,7 +27,9 @@ tickers_a_analizar = [t.replace('.', '-') for t in df_spy['Symbol'].tolist()]
 #1.5 Añade tickers de interes.
 
 mis_tickers = ['^VIX', 'SPY', 'SPXL' , 'TQQQ' , 'QQQ' , 'URA' , 'XLI' , 'XLF' , 'XLRE' , 'XLB' , 'XLY' , 'XLE', 'XLV' ,
-                'XBI' , 'XLC' , 'BTC-USD' , 'DIA']
+                'XBI' , 'XLC' , 'BTC-USD' , 'DIA'
+                'XLK' , 'SMH', 'XLP', 'XLU', 'CIBR', 'IBB', 'ICLN','ARKK','COPX','GDX'
+                ]
 
 tickers_a_analizar.extend(mis_tickers)
 
