@@ -30,7 +30,7 @@ def obtener_tickers():
 
 def obtener_datos_semanales():
     tickers_limpios = scraping.obtener_tickers()
-    data_7d = yf.download(tickers_limpios, period="1y", interval="1wk", group_by='ticker', progress=False)
+    data_7d = yf.download(tickers_limpios, period="max", interval="1wk", group_by='ticker', progress=False)
 
     return(data_7d)
 
