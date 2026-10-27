@@ -36,5 +36,4 @@ def obtener_tickers():
 
     if tickers_a_analizar:
       print(f"Se han cargado {len(tickers_a_analizar)} tickers...")
-      
-    return tickers_a_analizar
+    return tickers_a_analizar  
