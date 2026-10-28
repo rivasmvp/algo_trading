@@ -3,9 +3,9 @@
 import pandas as pd
 import requests
 import io
-# Uso: obtener_tickers()
+# Uso: scrapear_tickers()
 
-def obtener_tickers():
+def scrapear_tickers():
     #Scrapea Wikipedia para acceder a los nombres de los tickers del S&P500.
 
     #1.1 Define la URL y un 'User-Agent' para evitar el bloqueo.
