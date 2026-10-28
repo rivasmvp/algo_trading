@@ -3,36 +3,24 @@ import scraping
 import time
 
 inicio = time.perf_counter() #Contador de tiempo de ejecución
-def obtener_tickers():
+def obtener_tickers(temporalidad, periodo):
     
-    tickers_limpios = scraping.obtener_tickers()
+    tickers_limpios = scraping.scrapear_tickers()
     
-    # Descarga de datos temporalidad 60m.
-    data_60m = yf.download(tickers_limpios, period="2mo", interval="60m", group_by='ticker', progress=False)
-
-    # Descarga de datos temporalidad 1d.
-    data_1d = yf.download(tickers_limpios, period="2mo", interval="1d", group_by='ticker', progress=False)
-
-    # Descarga de datos temporalidad 7d.
-    data_7d = yf.download(tickers_limpios, period="1y", interval="1wk", group_by='ticker', progress=False)
-
+    # Descarga de datos temporalidad *temporalidad* y el periodo *periodo*.
+    data = yf.download(tickers_limpios, period=periodo , interval=temporalidad, group_by='ticker', progress=False)
+    
     fin = time.perf_counter() #Contador de tiempo de ejecución
     tiempo_total = fin - inicio #Contador de tiempo de ejecución
 
     print(f"Tiempo de descarga en {tiempo_total:.2f} segundos.")
 
-    if not data_60m.empty and not data_1d.empty and not data_7d.empty:
-        print("Se descargó todas las temporalidades")
+    if not data.empty:
+        print(f"Se descargó datos en temporalidad{temporalidad} con un periodo de {periodo}")
         
-    return(data_1d,data_60m,data_7d)   
+    return(data)   
 
 # Consulta especifica para descargar los datos del VIX, usado en el índice de volatilidad.
-
-def obtener_datos_semanales():
-    tickers_limpios = scraping.obtener_tickers()
-    data_7d = yf.download(tickers_limpios, period="max", interval="1wk", group_by='ticker', progress=False)
-
-    return(data_7d)
 
 def obtener_vix():
     inicio = time.perf_counter()
