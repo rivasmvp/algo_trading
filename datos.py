@@ -8,7 +8,7 @@ def obtener_tickers(temporalidad, periodo):
     tickers_limpios = scraping.scrapear_tickers()
     
     # Descarga de datos temporalidad *temporalidad* y el periodo *periodo*.
-    data = yf.download(tickers_limpios, period=periodo , interval=temporalidad, group_by='ticker', progress=False)
+    data = yf.download(tickers_limpios, period=periodo , interval=temporalidad, group_by='ticker', auto_adjust=True , progress=False)
     
     fin = time.perf_counter() #Contador de tiempo de ejecución
     tiempo_total = fin - inicio #Contador de tiempo de ejecución
